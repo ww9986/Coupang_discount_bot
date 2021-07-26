@@ -3,6 +3,8 @@ import Main
 import discord
 from discord.ext import commands
 
+import os
+
 app = commands.Bot(command_prefix='/')
 
 

@@ -1,5 +1,5 @@
-requests
-selenium
+requests~=2.26.0
+selenium~=3.141.0
 chromedriver-autoinstaller
-beautifulsoup4
+beautifulsoup4~=4.9.3
 discord.py
