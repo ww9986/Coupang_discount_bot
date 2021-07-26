@@ -27,4 +27,4 @@ async def reset(ctx):
     print()
 
 
-app.run(os.environ['token '])
+app.run(os.environ['token'])
