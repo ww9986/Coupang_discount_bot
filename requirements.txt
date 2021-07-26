@@ -3,3 +3,4 @@ selenium~=3.141.0
 chromedriver-autoinstaller
 beautifulsoup4~=4.9.3
 discord.py
+asyncio
