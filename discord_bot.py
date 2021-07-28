@@ -16,7 +16,7 @@ discord_db = pymysql.Connect(
     charset='utf8'
 )
 cursor = discord_db.cursor(pymysql.cursors.DictCursor)
-sql = 'SELECT * FROM discord;'
+sql = 'SELECT * FROM discord'
 cursor.execute(sql)
 
 
@@ -29,7 +29,7 @@ async def on_ready():
 @app.command(aliases=['설정', 'a'])
 async def setting(ctx, arg):
     member = ctx.author
-    sql = f'SELECT keyword FROM discord WHERE NAME = {member};'
+    sql = f'SELECT keyword FROM discord WHERE name = {member}'
     cursor.execute(sql)
     keyword_list = cursor.fetchall()
 
@@ -37,13 +37,13 @@ async def setting(ctx, arg):
         if keyword['keyword'] == arg:
             await ctx.send('이미 설정된 키워드 입니다.다른 키워드를 입력하주세요.')
 
-    sql = f'INSERT INTO discord(name, keyword) values({member},{ctx});'
+    sql = f'INSERT INTO discord(name, keyword) values({member},{ctx})'
 
 
 @app.command(aliases=['설정확인', 'b'])
 async def check_setting(ctx):
     member = ctx.author
-    sql = f'SELECT keyword FROM discord WHERE NAME = {member};'
+    sql = f'SELECT keyword FROM discord WHERE name = {member}'
     cursor.execute(sql)
     keyword_list = cursor.fetchall()
 
@@ -54,7 +54,7 @@ async def check_setting(ctx):
 @app.command(aliases=['초기화', 'c'])
 async def reset(ctx):
     member = ctx.author
-    sql = f'DELETE FROM discord where name = {member};'
+    sql = f'DELETE FROM discord where name = {member}'
     cursor.execute(sql)
     discord_db.commit()
 
