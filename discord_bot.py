@@ -36,16 +36,16 @@ async def setting(ctx, arg):
         if keyword['keyword'] == arg:
             await ctx.send('이미 설정된 키워드 입니다.다른 키워드를 입력하주세요.')
 
-    sql = 'INSERT INTO discord(name, keyword) values(%s, %s);'
-    cursor.execute(sql, member, arg)
+    sql = f"INSERT INTO discord(name, keyword) values('{member}', '{arg}');"
+    cursor.execute(sql)
     discord_db.commit()
 
 
 @app.command(aliases=['설정확인', 'b'])
 async def check_setting(ctx):
     member = ctx.author
-    sql = 'SELECT keyword FROM discord WHERE name = %s;'
-    cursor.execute(sql, member)
+    sql = f"SELECT keyword FROM discord WHERE name = '{member}';"
+    cursor.execute(sql)
     keyword_list = cursor.fetchall()
 
     for keyword in keyword_list:
@@ -55,7 +55,7 @@ async def check_setting(ctx):
 @app.command(aliases=['초기화', 'c'])
 async def reset(ctx):
     member = ctx.author
-    sql = 'DELETE FROM discord where name = %s;'
+    sql = f"DELETE FROM discord where name = '{member}';"
     cursor.execute(sql, member)
     discord_db.commit()
 
