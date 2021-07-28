@@ -37,7 +37,7 @@ async def setting(ctx, arg):
         if keyword['keyword'] == arg:
             await ctx.send('이미 설정된 키워드 입니다.다른 키워드를 입력하주세요.')
 
-    sql = f'INSERT INTO discord (name, keyword) values ({member},{ctx});'
+    sql = f'INSERT INTO discord(name, keyword) values({member},{ctx});'
 
 
 @app.command(aliases=['설정확인', 'b'])
