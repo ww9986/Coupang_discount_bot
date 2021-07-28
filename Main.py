@@ -1,6 +1,7 @@
 import re
 import requests
 import time
+import pymysql
 
 from bs4 import BeautifulSoup
 from selenium import webdriver

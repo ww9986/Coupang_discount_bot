@@ -4,3 +4,5 @@ chromedriver-autoinstaller
 beautifulsoup4~=4.9.3
 discord.py
 asyncio
+
+PyMySQL~=1.0.2
